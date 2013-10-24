@@ -23,7 +23,7 @@ my %WriteMakefileArgs = (
     "Data::Validate::WithYAML" => "0.11"
   },
   "TEST_REQUIRES" => {},
-  "VERSION" => "0.02",
+  "VERSION" => "0.03",
   "test" => {
     "TESTS" => "t/*.t"
   }

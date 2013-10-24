@@ -7,7 +7,36 @@ use Carp;
 
 # ABSTRACT: Plugin to check Phone numbers (basic check)
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
+
+
+sub check {
+    my ($class, $value) = @_;
+    
+    croak "no value to check" unless defined $value;
+    
+    my $return = 0;
+    $value =~ s/\s//g;
+    if( $value =~ m{\A (?: \+ | 00? ) [1-9]{2,6} [/-]? [0-9]{4,12} \z}x ){
+        $return = 1;
+    }
+    
+    return $return;
+}
+
+1;
+
+__END__
+
+=pod
+
+=head1 NAME
+
+Data::Validate::WithYAML::Plugin::Phone - Plugin to check Phone numbers (basic check)
+
+=head1 VERSION
+
+version 0.03
 
 =head1 SYNOPSIS
 
@@ -31,26 +60,21 @@ test.yml
       phone:
           plugin: Phone
           type: required
-  
 
 =head1 SUBROUTINES
 
 =head2 check
 
+=head1 AUTHOR
+
+Renee Baecker <reneeb@cpan.org>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is Copyright (c) 2013 by Renee Baecker.
+
+This is free software, licensed under:
+
+  The Artistic License 2.0 (GPL Compatible)
+
 =cut
-
-sub check {
-    my ($class, $value) = @_;
-    
-    croak "no value to check" unless defined $value;
-    
-    my $return = 0;
-    $value =~ s/\s//g;
-    if( $value =~ m{\A (?: \+ | 00? ) [1-9]{2,6} [/-]? [0-9]{4,12} \z}x ){
-        $return = 1;
-    }
-    
-    return $return;
-}
-
-1;

@@ -18,4 +18,4 @@ resources:
   bugtracker: http://github.com/reneeb/Data-Validate-WithYAML-Plugin-Phone/issues
   homepage: http://github.com/reneeb/Data-Validate-WithYAML-Plugin-Phone
   repository: git://github.com/reneeb/Data-Validate-WithYAML-Plugin-Phone.git
-version: 0.02
+version: 0.03
